@@ -1,15 +1,22 @@
-cd ~/tp-r504; mkdir -p .github/workflows
-cd .github/workflows
-touch pytest.yml
 name: tests unitaires
+
 on: [push]
+
 jobs:
   test1:
-	runs-on: ubuntu-latest
-	steps:
-	   - uses: actions/checkout@v3
-	   - name: Set up Python for Demo
-		 uses: actions/setup-python@v4
-	   - name: Run tests
-		 
-run: pytest TP1/test.py
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python for Demo
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest TP1/test.py
+
