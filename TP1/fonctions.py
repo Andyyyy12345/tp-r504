@@ -3,5 +3,8 @@ def puissance(a, b):
         raise TypeError("il faut que de l'int")
     if not type(b) is int:
         raise TypeError("il faut que de l'int")
-    return a ** b
 
+    if a == 0 and b < 0:
+        raise ValueError("puissance négative de zéro interdite")
+
+    return a ** b
