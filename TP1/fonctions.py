@@ -7,4 +7,14 @@ def puissance(a, b):
     if a == 0 and b < 0:
         raise ValueError("puissance négative de zéro interdite")
 
-    return a ** b
+    resultat = 1
+
+    if b >= 0:
+        for i in range(b):
+            resultat = resultat * a
+    else:
+        for i in range(-b):
+            resultat = resultat * a
+        resultat = 1 / resultat
+
+    return resultat
