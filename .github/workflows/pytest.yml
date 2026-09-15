@@ -20,6 +20,11 @@ jobs:
       - name: Voir les fichiers
         run: find . -maxdepth 3 -type f
 
+      - name: Afficher la branche
+        run: echo "Nom branche : ${{ github.ref_name }}"
+
+      - name: Afficher l'OS
+        run: echo "OS de la VM : ${{ runner.os }}"
+
       - name: Run tests
         run: pytest TP1/test.py
-
