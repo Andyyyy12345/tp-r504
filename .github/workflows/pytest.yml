@@ -25,12 +25,12 @@ jobs:
       - name: Afficher la branche
         env:
           BRANCH_NAME: ${{ github.ref_name }}
-        run: echo "Nom branche: $BRANCH_NAME"
+        run: 'echo "Nom branche: $BRANCH_NAME"'
 
       - name: Afficher l'OS
         env:
           OS_NAME: ${{ runner.os }}
-        run: echo "OS de la VM: $OS_NAME"
+        run: 'echo "OS de la VM: $OS_NAME"'
 
       - name: Lancer les tests
         run: pytest TP1/test.py
