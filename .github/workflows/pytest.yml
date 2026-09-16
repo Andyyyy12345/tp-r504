@@ -7,6 +7,10 @@ jobs:
   test1:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.10"]
+
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v4
@@ -14,7 +18,7 @@ jobs:
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: ${{ matrix.python-version }}
 
       - name: Installer pytest
         run: pip install pytest
