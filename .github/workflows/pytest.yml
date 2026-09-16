@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Afficher la version de Python
+        run: python --version
+
       - name: Installer pytest
         run: pip install pytest
 
