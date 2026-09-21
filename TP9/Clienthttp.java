@@ -22,7 +22,11 @@ public class Clienthttp {
             BufferedReader bufIn =
                 new BufferedReader(isw);
 
-            String request = "GET / HTTP/1.0\r\n\r\n";
+            // Ajout du header User-Agent et passage en HTTP/1.1 (recommandé pour les hôtes virtuels)
+            String request = "GET / HTTP/1.1\r\n" +
+                             "Host: " + args[0] + "\r\n" +
+                             "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\r\n" +
+                             "Connection: close\r\n\r\n";
 
             bufOut.write(request, 0, request.length());
             bufOut.flush();
@@ -43,4 +47,3 @@ public class Clienthttp {
         }
     }
 }
-
