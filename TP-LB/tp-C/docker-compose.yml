@@ -1,0 +1,16 @@
+services:
+  s-app1:
+    build: ./appli
+    ports:
+      - "5001:5000"
+  s-app2:
+    build: ./appli
+    ports:
+      - "5002:5000"
+  s-nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - s-app1
+      - s-app2
